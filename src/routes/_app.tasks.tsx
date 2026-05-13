@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SimplePage } from "@/pages/SimplePage";
+import { TaskManager } from "@/widgets/TaskManager";
 
 export const Route = createFileRoute("/_app/tasks")({
-  component: () => <SimplePage title="Tasks" description="Manage all your tasks across projects." />,
+  component: () => (
+    <div className="max-w-3xl mx-auto">
+      <TaskManager />
+    </div>
+  ),
 });
