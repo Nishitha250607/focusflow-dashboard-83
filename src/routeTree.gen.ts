@@ -15,7 +15,6 @@ import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppTasksRouteImport } from './routes/_app.tasks'
 import { Route as AppSettingsRouteImport } from './routes/_app.settings'
-import { Route as AppProgressRouteImport } from './routes/_app.progress'
 import { Route as AppNotesRouteImport } from './routes/_app.notes'
 import { Route as AppMusicRouteImport } from './routes/_app.music'
 import { Route as AppGoalsRouteImport } from './routes/_app.goals'
@@ -51,11 +50,6 @@ const AppTasksRoute = AppTasksRouteImport.update({
 const AppSettingsRoute = AppSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppProgressRoute = AppProgressRouteImport.update({
-  id: '/progress',
-  path: '/progress',
   getParentRoute: () => AppRoute,
 } as any)
 const AppNotesRoute = AppNotesRouteImport.update({
@@ -105,7 +99,6 @@ export interface FileRoutesByFullPath {
   '/goals': typeof AppGoalsRoute
   '/music': typeof AppMusicRoute
   '/notes': typeof AppNotesRoute
-  '/progress': typeof AppProgressRoute
   '/settings': typeof AppSettingsRoute
   '/tasks': typeof AppTasksRoute
 }
@@ -120,7 +113,6 @@ export interface FileRoutesByTo {
   '/goals': typeof AppGoalsRoute
   '/music': typeof AppMusicRoute
   '/notes': typeof AppNotesRoute
-  '/progress': typeof AppProgressRoute
   '/settings': typeof AppSettingsRoute
   '/tasks': typeof AppTasksRoute
 }
@@ -137,7 +129,6 @@ export interface FileRoutesById {
   '/_app/goals': typeof AppGoalsRoute
   '/_app/music': typeof AppMusicRoute
   '/_app/notes': typeof AppNotesRoute
-  '/_app/progress': typeof AppProgressRoute
   '/_app/settings': typeof AppSettingsRoute
   '/_app/tasks': typeof AppTasksRoute
 }
@@ -154,7 +145,6 @@ export interface FileRouteTypes {
     | '/goals'
     | '/music'
     | '/notes'
-    | '/progress'
     | '/settings'
     | '/tasks'
   fileRoutesByTo: FileRoutesByTo
@@ -169,7 +159,6 @@ export interface FileRouteTypes {
     | '/goals'
     | '/music'
     | '/notes'
-    | '/progress'
     | '/settings'
     | '/tasks'
   id:
@@ -185,7 +174,6 @@ export interface FileRouteTypes {
     | '/_app/goals'
     | '/_app/music'
     | '/_app/notes'
-    | '/_app/progress'
     | '/_app/settings'
     | '/_app/tasks'
   fileRoutesById: FileRoutesById
@@ -239,13 +227,6 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof AppSettingsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/progress': {
-      id: '/_app/progress'
-      path: '/progress'
-      fullPath: '/progress'
-      preLoaderRoute: typeof AppProgressRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/notes': {
@@ -308,7 +289,6 @@ interface AppRouteChildren {
   AppGoalsRoute: typeof AppGoalsRoute
   AppMusicRoute: typeof AppMusicRoute
   AppNotesRoute: typeof AppNotesRoute
-  AppProgressRoute: typeof AppProgressRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppTasksRoute: typeof AppTasksRoute
 }
@@ -321,7 +301,6 @@ const AppRouteChildren: AppRouteChildren = {
   AppGoalsRoute: AppGoalsRoute,
   AppMusicRoute: AppMusicRoute,
   AppNotesRoute: AppNotesRoute,
-  AppProgressRoute: AppProgressRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppTasksRoute: AppTasksRoute,
 }
