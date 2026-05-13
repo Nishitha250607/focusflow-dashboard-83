@@ -1,6 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SimplePage } from "@/pages/SimplePage";
+import { Goals } from "@/widgets/Goals";
+import { StreakTracker } from "@/widgets/StreakTracker";
 
 export const Route = createFileRoute("/_app/goals")({
-  component: () => <SimplePage title="Goals" description="Track long-term goals and milestones." />,
+  component: () => (
+    <div className="grid lg:grid-cols-2 gap-5">
+      <Goals />
+      <StreakTracker />
+    </div>
+  ),
 });
